@@ -1,5 +1,5 @@
 // Generated from C:/Users/mihail/IdeaProjects/antlrExample/src/main/java/antlr4\Hello.g4 by ANTLR 4.7.2
-package antlr4;
+package antlr4.Hello;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.*;

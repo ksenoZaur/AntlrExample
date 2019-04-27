@@ -1,18 +1,19 @@
-import antlr4.HelloLexer;
-import antlr4.HelloParser;
-import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CommonTokenStream;
+
+import antlr4.ExpLexer;
+import antlr4.ExpParser;
+import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 public class Main {
-    public static void main( String[] args) throws Exception
-    {
-        HelloLexer lexer = new HelloLexer(CharStreams.fromString("hello world"));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        HelloParser parser = new HelloParser(tokens);
-        ParseTree tree = parser.r();
-        ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(new HelloWalker(), tree);
+    public static void main(String[] args) throws Exception {
+
+        String[] input = new String[]{"src/main/example/test.xen"};
+        System.out.println("Исследуем: " + input[0]);
+        ExpLexer lexer = new ExpLexer(new ANTLRFileStream(input[0]));
+        ExpParser parser = new ExpParser(new CommonTokenStream(lexer));
+        ParseTree tree = parser.prog();
+        EvalVisitor visitor = new EvalVisitor();
+        visitor.visit(tree);
+
     }
 }

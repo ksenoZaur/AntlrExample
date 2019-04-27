@@ -1,0 +1,20 @@
+fib1 = 1;
+fib2 = 1;
+
+n = 7;
+
+if n < 1 {
+    console "Julik!";
+} else {
+    i = 0;
+    fib_sum = 0;
+
+    while i < n - 2 {
+        fib_sum = fib1 + fib2;
+        fib1 = fib2;
+        fib2 = fib_sum;
+        i = i + 1;
+    }
+
+    console "n +  Fibonacci number = " + fib2;
+}
